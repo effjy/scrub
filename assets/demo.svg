@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="396" viewBox="0 0 760 396" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace" font-size="14">
+  <defs>
+    <style>
+      .bg   { fill: #1a1b26; }
+      .bar  { fill: #16161e; }
+      .cmt  { fill: #565f89; }
+      .pmt  { fill: #7dcfff; }
+      .cmd  { fill: #c0caf5; }
+      .out  { fill: #a9b1d6; }
+      .key  { fill: #bb9af7; }
+      .ok   { fill: #00ffcc; }
+      .dim  { fill: #414868; }
+    </style>
+  </defs>
+
+  <!-- window -->
+  <rect x="0" y="0" width="760" height="396" rx="10" class="bg"/>
+  <rect x="0" y="0" width="760" height="36" rx="10" class="bar"/>
+  <rect x="0" y="26" width="760" height="10" class="bar"/>
+  <circle cx="22" cy="18" r="6" fill="#f7768e"/>
+  <circle cx="44" cy="18" r="6" fill="#e0af68"/>
+  <circle cx="66" cy="18" r="6" fill="#9ece6a"/>
+  <text x="380" y="23" text-anchor="middle" class="dim">scrub — ~/photos</text>
+
+  <!-- content -->
+  <g>
+    <text x="24" y="74"  class="cmt"># before — metadata is leaking</text>
+
+    <text x="24" y="100" class="pmt">$ <tspan class="cmd">exiftool demo.jpg | grep -E 'Make|Software|GPS'</tspan></text>
+    <text x="24" y="122" class="out"><tspan class="key">Make</tspan>            : Canon EOS R5</text>
+    <text x="24" y="144" class="out"><tspan class="key">Software</tspan>        : Adobe Lightroom</text>
+    <text x="24" y="166" class="out"><tspan class="key">GPS Position</tspan>    : 45.50, -73.56</text>
+
+    <text x="24" y="208" class="pmt">$ <tspan class="cmd">scrub -t demo.jpg demo.png</tspan></text>
+    <text x="24" y="230" class="out"><tspan class="ok">✓</tspan> demo.jpg — removed 2 segments, now 8228 bytes</text>
+    <text x="24" y="252" class="out"><tspan class="ok">✓</tspan> demo.png — removed 3 segments, now 2791 bytes</text>
+
+    <text x="24" y="294" class="cmt"># after — nothing left to leak</text>
+    <text x="24" y="320" class="pmt">$ <tspan class="cmd">exiftool demo.jpg | grep -E 'Make|Software|GPS'</tspan></text>
+    <text x="24" y="342" class="pmt">$ <tspan class="cmd">▏</tspan></text>
+  </g>
+</svg>

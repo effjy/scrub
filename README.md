@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://github.com/effjy/scrub/"><img src="titles/scrub-title.svg" height="44" alt="Scrub"></a>
+<a href="https://github.com/effjy/scrub/"><img src="titles/scrub-title.svg" height="52" alt="Scrub"></a>
 
 **Forensic-grade metadata scrubber for Linux.**
 

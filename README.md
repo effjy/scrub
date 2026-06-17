@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://github.com/effjy/scrub/"><img src="titles/scrub-title.svg" height="52" alt="Scrub"></a>
+# scrub
 
 **Forensic-grade metadata scrubber for Linux.**
 
@@ -34,7 +34,7 @@ dependencies** — no libexif, no ImageMagick.
 | Format | Stripped |
 |:---|:---|
 | **JPEG** | `APP1` (Exif/XMP), `APP2`–`APP15` (ICC/Photoshop/vendor), `APP13` (IPTC), `COM` comments |
-| **PNG**  | `tEXt`, `zTXt`, `iTXt` (text), `tIME` (timestamp), `eXIf` (embedded Exif) |
+| **PNG**  | `tEXt`, `zTXt`, `iTXt` (text), `tIME` (timestamp), `eXIf` (embedded Exif), `caBX` (C2PA/JUMBF provenance manifest) |
 
 Image pixels are never re-encoded — only metadata segments are removed, so the
 image itself is byte-for-byte preserved.

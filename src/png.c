@@ -9,6 +9,7 @@
  *   tEXt, zTXt, iTXt — textual metadata (author, software, comments)
  *   tIME             — last-modification timestamp
  *   eXIf             — embedded Exif block
+ *   caBX             — C2PA / JUMBF content-provenance manifest
  *
  * Because kept chunks are byte-for-byte identical, their stored CRCs remain
  * valid — no recomputation needed.
@@ -40,7 +41,8 @@ static int copy_bytes(FILE *in, FILE *out, long n) {
 }
 
 static int is_metadata_chunk(const char t[4]) {
-    static const char *drop[] = {"tEXt", "zTXt", "iTXt", "tIME", "eXIf"};
+    static const char *drop[] = {"tEXt", "zTXt", "iTXt", "tIME", "eXIf",
+                                 "caBX"};
     for (size_t i = 0; i < sizeof drop / sizeof *drop; i++)
         if (memcmp(t, drop[i], 4) == 0) return 1;
     return 0;
